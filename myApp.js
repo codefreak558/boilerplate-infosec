@@ -5,18 +5,18 @@ const helmet = require('helmet');
 
 const timeInSeconds = 90*24*60*60;
 
-//app.use(helmet.hidePoweredBy());                              // Hides powered by Express
-//app.use(helmet.frameguard({action: 'deny'}));                 // Stops clickjacking
-//app.use(helmet.xssFilter());                                  // Trys to filter out xss attacks
-//app.use(helmet.noSniff());                                    // Stops sniffing
-//app.use(helmet.ieNoOpen());                                   // Will not allow IE to open downloads
-//app.use(helmet.hsts({maxAge: timeInSeconds, force: true}));   // Trys to force broswer to use HTTPS and not HTTP
-//app.use(helmet.dnsPrefetchControl());                         // Will try and prevent people from looking into dns readings??
-//app.use(helmet.noCache());                                    // Will try to force the browser to always redownload the site
-//app.use(helmet.contentSecurityPolicy({directives: 
-//      {defaultSrc: ["'self'"], scriptSrc: ["'self'", 'trusted-cdn.com']}
-//    }
-//  ));
+app.use(helmet.hidePoweredBy());                              // Hides powered by Express
+app.use(helmet.frameguard({action: 'deny'}));                 // Stops clickjacking
+app.use(helmet.xssFilter());                                  // Trys to filter out xss attacks
+app.use(helmet.noSniff());                                    // Stops sniffing
+app.use(helmet.ieNoOpen());                                   // Will not allow IE to open downloads
+app.use(helmet.hsts({maxAge: timeInSeconds, force: true}));   // Trys to force broswer to use HTTPS and not HTTP
+app.use(helmet.dnsPrefetchControl());                         // Will try and prevent people from looking into dns readings??
+app.use(helmet.noCache());                                    // Will try to force the browser to always redownload the site
+app.use(helmet.contentSecurityPolicy({directives: 
+      {defaultSrc: ["'self'"], scriptSrc: ["'self'", 'trusted-cdn.com']}
+    }
+  ));
 
 
 app.use(helmet({
@@ -26,11 +26,11 @@ app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],
-      stlyesrc: ['style.com'],
+      stylesrc: ['style.com'],
     }
   },
   dnsPrefetchControl: false
-}));
+}))
 
 
 
