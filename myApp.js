@@ -13,7 +13,10 @@ app.use(helmet.ieNoOpen());                                   // Will not allow 
 app.use(helmet.hsts({maxAge: timeInSeconds, force: true}));   // Trys to force broswer to use HTTPS and not HTTP
 app.use(helmet.dnsPrefetchControl());                         // Will try and prevent people from looking into dns readings??
 app.use(helmet.noCache());                                    // Will try to force the browser to always redownload the site
-
+app.use(helmet.contentSecurityPolicy({directives: 
+      {defaultSrc: ["'self'"], scriptSrc: ["'self'", 'trusted-cdn.com']}
+    }
+  ));
 
 
 
